@@ -1,6 +1,6 @@
 'use strict';
 
-function getExt(format) {
+export function getExt(format) {
   switch (format) {
     case 'gzip':
       return 'gz';
@@ -11,6 +11,4 @@ function getExt(format) {
     default:
       return '';
   }
-};
-
-module.exports = { getExt };
+}

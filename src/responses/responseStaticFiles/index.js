@@ -1,13 +1,13 @@
 'use strict';
 
-const fs = require('fs/promises');
-const path = require('path');
-const { createErrorSender } = require('../../helpers/sendError');
-const { mimeTypes } = require('./mimeTypes');
+import fs from 'fs/promises';
+import path from 'path';
+import { createErrorSender } from '../../helpers/sendError.js';
+import { mimeTypes } from './mimeTypes.js';
 const inPublic = (filePath) => path.join('public', filePath);
 const readFile = (filePath) => fs.readFile(inPublic(filePath), 'utf-8');
 
-async function responseStaticFiles(request, response) {
+export async function responseStaticFiles(request, response) {
   const sendError = createErrorSender(response);
   const { url, headers } = request;
   const { pathname } = new URL(url, `http://${headers.host}`);
@@ -25,5 +25,3 @@ async function responseStaticFiles(request, response) {
     sendError(404, 'This page doesn\'t exist');
   }
 }
-
-module.exports = { responseStaticFiles };

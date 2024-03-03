@@ -1,17 +1,17 @@
 /* eslint-disable max-len, object-curly-newline, no-console */
 'use strict';
 
-const formidable = require('formidable');
-const { responseOneCompressedFile } = require('./responseOneCompressedFile');
-const { responseCompressedFiles } = require('./responseCompressedFiles');
-const { handleResponsePrediction } = require('../../modules/sizePrediction/handleResponsePrediction');
-const { ErrorHandler } = require('./ErrorHandler');
-const { errorMessage } = require('../../constants/errors');
-const { options } = require('./options');
+import formidable from 'formidable';
+import { responseOneCompressedFile } from './responseOneCompressedFile.js';
+import { responseCompressedFiles } from './responseCompressedFiles.js';
+import { handleResponsePrediction } from '../../modules/sizePrediction/handleResponsePrediction.js';
+import { ErrorHandler } from './ErrorHandler.js';
+import { errorMessage } from '../../constants/errors.js';
+import { options } from './options.js';
 
-async function responseCompressor(request, response) {
+export async function responseCompressor(request, response) {
   const errorHandler = new ErrorHandler(response);
-  const form = new formidable.Formidable(options);
+  const form = formidable(options);
 
   if (request.method.toUpperCase() !== 'POST') {
     return errorHandler.sendError(400, errorMessage.onlyPOSTSupport);
@@ -37,5 +37,3 @@ async function responseCompressor(request, response) {
     return errorHandler.detectTypeAndSendError(error);
   }
 }
-
-module.exports = { responseCompressor };

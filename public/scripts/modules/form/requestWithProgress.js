@@ -7,9 +7,9 @@ export function requestWithProgress(form) {
   const xhr = new XMLHttpRequest();
   const formData = new FormData(form);
 
-  xhr.open('POST', '/compress');
+  xhr.open('POST', '/api/compress');
   xhr.responseType = 'blob';
-
+  
   xhr.onloadstart = () => {
     setProgressVisibility(true);
     setProgress(0);

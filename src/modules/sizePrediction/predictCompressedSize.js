@@ -1,9 +1,9 @@
 'use strict';
 
-const path = require('path');
-const { getCompressionRatios } = require('./getCompressionRatios');
+import path from 'path';
+import { getCompressionRatios } from './getCompressionRatios.js';
 
-function predictCompressedSize(files) {
+export function predictCompressedSize(files) {
   try {
     return files.reduce((sum, file) => {
       const ext = path.extname(file.originalFilename);
@@ -16,5 +16,3 @@ function predictCompressedSize(files) {
     throw error;
   }
 }
-
-module.exports = { predictCompressedSize };

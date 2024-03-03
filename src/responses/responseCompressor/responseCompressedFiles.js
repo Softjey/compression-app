@@ -1,12 +1,12 @@
 'use strict';
 
-const fs = require('fs');
-const archiver = require('archiver');
-const { createCompress } = require('../../modules/compression/createCompress');
-const { getExt } = require('../../modules/compression/getExt');
-const { setContentAttachment } = require('../../helpers/setContentAttachment');
+import fs from 'fs';
+import archiver from 'archiver';
+import { createCompress } from '../../modules/compression/createCompress.js';
+import { getExt } from '../../modules/compression/getExt.js';
+import { setContentAttachment } from '../../helpers/setContentAttachment.js';
 
-function responseCompressedFiles(response, files, compressFormat) {
+export function responseCompressedFiles(response, files, compressFormat) {
   const archive = archiver('zip');
 
   response.on('close', () => archive.destroy());
@@ -27,5 +27,3 @@ function responseCompressedFiles(response, files, compressFormat) {
   archive.pipe(response);
   archive.finalize();
 }
-
-module.exports = { responseCompressedFiles };

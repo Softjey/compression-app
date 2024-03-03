@@ -1,13 +1,13 @@
 /* eslint-disable max-len */
 'use strict';
 
-const pretty = require('filesize');
-const { errorMessage } = require('../../constants/errors');
-const { compressFormats } = require('../../modules/compression/compressFormats');
-const { createErrorSender } = require('../../helpers/sendError');
-const { options } = require('./options');
+import pretty from 'filesize';
+import { errorMessage } from '../../constants/errors.js';
+import { compressFormats } from '../../modules/compression/compressFormats.js';
+import { createErrorSender } from '../../helpers/sendError.js';
+import { options } from './options.js';
 
-class ErrorHandler {
+export class ErrorHandler {
   constructor(response) {
     this.sendError = createErrorSender(response);
   }
@@ -54,5 +54,3 @@ class ErrorHandler {
     }
   }
 }
-
-module.exports = { ErrorHandler };

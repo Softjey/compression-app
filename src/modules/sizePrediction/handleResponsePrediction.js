@@ -1,13 +1,9 @@
 'use strict';
 
-const { predictCompressedSize } = require('./predictCompressedSize');
+import { predictCompressedSize } from './predictCompressedSize.js';
 
-function handleResponsePrediction(files, response) {
+export function handleResponsePrediction(files, response) {
   const prediction = predictCompressedSize(files);
 
   response.setHeader('Predicted-Length', prediction);
 }
-
-module.exports = {
-  handleResponsePrediction,
-};

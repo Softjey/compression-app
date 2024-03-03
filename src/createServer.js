@@ -1,12 +1,12 @@
 'use strict';
 
-const http = require('http');
+import http from 'http';
 
 /* eslint-disable max-len */
-const { responseCompressor } = require('./responses/responseCompressor/index');
-const { responseStaticFiles } = require('./responses/responseStaticFiles/index');
+import { responseCompressor } from './responses/responseCompressor/index.js';
+import { responseStaticFiles } from './responses/responseStaticFiles/index.js';
 
-function createServer() {
+export function createServer() {
   const server = http.createServer((request, response) => {
     if (request.url === '/compress') {
       responseCompressor(request, response);
@@ -20,7 +20,3 @@ function createServer() {
 
   return server;
 }
-
-module.exports = {
-  createServer,
-};

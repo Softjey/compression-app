@@ -1,7 +1,7 @@
 /* eslint-disable object-property-newline, max-len */
 'use strict';
 
-const compressionRatios = {
+export const compressionRatios = {
   // Text
   'txt': 0.8, 'html': 0.8, 'css': 0.8, 'js': 0.8, 'xml': 0.8, 'json': 0.8, 'md': 0.8, 'csv': 0.8, 'log': 0.8, 'ini': 0.8, 'yaml': 0.8, 'php': 0.8, 'asp': 0.8, 'jsp': 0.8,
   // Image
@@ -45,5 +45,3 @@ const compressionRatios = {
   // Configuration files
   'cfg': 0.8, 'conf': 0.8, 'properties': 0.8, 'toml': 0.8, 'reg': 0.8, 'plist': 0.8,
 };
-
-module.exports = { compressionRatios };

@@ -2,9 +2,7 @@
 
 const maxFileSize = 10 * 1024 ** 3;
 
-const options = {
+export const options = {
   maxFileSize,
   maxTotalFileSize: maxFileSize,
 };
-
-module.exports = { options };

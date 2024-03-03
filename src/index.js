@@ -1,9 +1,8 @@
 /* eslint-disable no-console */
-/* Don't change code below */
 
 'use strict';
 
-const { createServer } = require('./createServer');
+import { createServer } from './createServer.js';
 
 createServer()
   .listen(process.env.PORT || 5700, () => {

@@ -1,9 +1,7 @@
 'use strict';
 
-const { compressionRatios } = require('./compressionRatios');
+import { compressionRatios } from './compressionRatios.js';
 
-function getCompressionRatios(extension) {
+export function getCompressionRatios(extension) {
   return compressionRatios[extension] || 1;
 }
-
-module.exports = { getCompressionRatios };

@@ -1,8 +1,8 @@
 'use strict';
 
-const zlib = require('zlib');
+import zlib from 'zlib';
 
-function createCompress(compressionType) {
+export function createCompress(compressionType) {
   switch (compressionType) {
     case 'gzip':
       return zlib.createGzip();
@@ -14,5 +14,3 @@ function createCompress(compressionType) {
       throw new Error(`Unsupported compression type: ${compressionType}`);
   }
 }
-
-module.exports = { createCompress };
